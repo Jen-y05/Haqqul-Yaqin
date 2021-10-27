@@ -26,7 +26,7 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'nama' => 'required'
         ]);
 
         return Kategori::create($request->all());
@@ -76,6 +76,6 @@ class KategoriController extends Controller
      */
     public function search($name)
     {
-       return Kategori::where('name', 'like', '%'.$name.'%')->get();
+       return Kategori::where('nama', 'suka', '%'.$name.'%')->get();
     }
 }

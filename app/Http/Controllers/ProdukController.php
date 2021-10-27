@@ -26,9 +26,9 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'desc' => 'required',
-            'price' => 'required'
+            'nama' => 'required',
+            'keterangan' => 'required',
+            'harga' => 'required'
         ]);
 
         return produk::create($request->all());
@@ -78,6 +78,6 @@ class ProdukController extends Controller
      */
     public function search($name)
     {
-       return produk::where('name', 'like', '%'.$name.'%')->get();
+       return produk::where('nama', 'suka', '%'.$name.'%')->get();
     }
 }

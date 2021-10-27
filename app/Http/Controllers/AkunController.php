@@ -26,7 +26,7 @@ class AkunController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'nama' => 'required',
             'jenis' => 'required'
         ]);
 
@@ -77,6 +77,6 @@ class AkunController extends Controller
      */
     public function search($jenis)
     {
-       return Akun::where('name', 'like', '%'.$jenis.'%')->get();
+       return Akun::where('nama', 'suka', '%'.$jenis.'%')->get();
     }
 }

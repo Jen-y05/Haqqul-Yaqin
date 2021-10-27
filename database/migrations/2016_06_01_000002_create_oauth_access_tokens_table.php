@@ -34,7 +34,7 @@ class CreateOauthAccessTokensTable extends Migration
             $table->string('id', 100)->primary();
             $table->unsignedBigInteger('user_id')->nullable()->index();
             $table->uuid('client_id');
-            $table->string('name')->nullable();
+            $table->string('nama')->nullable();
             $table->text('scopes')->nullable();
             $table->boolean('revoked');
             $table->timestamps();

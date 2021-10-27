@@ -10,6 +10,6 @@ class SubKategori extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'nama',
     ];
 }

@@ -11,6 +11,6 @@ class Transaksi extends Model
 
     protected $fillable = [
         'nominal',
-        'description'
+        'keterangan'
     ];
 }

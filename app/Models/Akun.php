@@ -10,7 +10,7 @@ class Akun extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'nama',
         'jenis'
     ];
 }

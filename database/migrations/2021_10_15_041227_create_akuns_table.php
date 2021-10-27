@@ -15,8 +15,8 @@ class CreateAkunsTable extends Migration
     {
         Schema::create('akuns', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->enum('jenis', ['tabungan', 'utang', 'piutang']);
+            $table->string('nama');
+            $table->enum('jenis', ['tabungan', 'utang',]);
             $table->timestamps();
 
         });

@@ -11,12 +11,12 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    public function daftar(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'name' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8'
+            'kata sandi' => 'required|string|min:8'
         ]);
 
         if($validator->fails()){
@@ -24,9 +24,9 @@ class AuthController extends Controller
         }
 
         $user = User::create([
-            'name' => $request->name,
+            'nama' => $request->nama,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'kata sandi' => Hash::make($request->password)
          ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
@@ -37,10 +37,10 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        if (!Auth::attempt($request->only('email', 'password')))
+        if (!Auth::attempt($request->only('email', 'kata sandi')))
         {
             return response()
-                ->json(['message' => 'Unauthorized'], 401);
+                ->json(['pesan' => 'Unauthorized'], 401);
         }
 
         $user = User::where('email', $request['email'])->firstOrFail();
@@ -48,7 +48,7 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()
-            ->json(['message' => 'Hi '.$user->name.', welcome to home','access_token' => $token, 'token_type' => 'Bearer', ]);
+            ->json(['pesan' => 'Halo!'.$user->name.', Selamat datang di Beranda!','access_token' => $token, 'token_type' => 'Bearer', ]);
     }
 
     // method for user logout and delete token
@@ -58,7 +58,7 @@ class AuthController extends Controller
         $user->tokens()->delete();
 
         return [
-            'message' => 'You have successfully logged out and the token was successfully deleted'
+            'pesan' => 'Kamu berhasil keluar dan token sudah dihapus'
         ];
     }
 

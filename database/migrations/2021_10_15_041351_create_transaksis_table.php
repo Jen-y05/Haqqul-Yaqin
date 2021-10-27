@@ -22,7 +22,7 @@ class CreateTransaksisTable extends Migration
             $table->bigInteger('tag_id')->unsigned();
             $table->decimal('nominal', 10, 3);
             $table->date('tanggal');
-            $table->string('description');
+            $table->string('keterangan');
             $table->timestamps();
         });
 

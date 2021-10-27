@@ -26,7 +26,7 @@ class SubKategoriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'nama' => 'required'
         ]);
 
         return SubKategori::create($request->all());
@@ -76,6 +76,6 @@ class SubKategoriController extends Controller
      */
     public function search($name)
     {
-       return SubKategori::where('name', 'like', '%'.$name.'%')->get();
+       return SubKategori::where('nama', 'suka', '%'.$name.'%')->get();
     }
 }
